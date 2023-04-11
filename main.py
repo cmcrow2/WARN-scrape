@@ -57,7 +57,7 @@ for index in range(len(large_layoff_data["Texas"])):
     partial_html += f"Actual/Expected Date Layoffs Begin: <mark>{temp_layoff_date}</mark><br></br>"
     partial_html += f"Number of Affected Employees: <strong>{temp_layoff_number}</strong></p>"
 
-# convert full list to html
+# convert full list to html TODO
 
 # combine html
 html = partial_html
