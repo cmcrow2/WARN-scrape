@@ -17,7 +17,7 @@ large_layoff_data = filters.filter_by_layoff_num(warn_data, 'Texas')
 filtered_html = build.build_html_table(large_layoff_data, 'Texas')
 filtered_html = build.add_header(filtered_html, True)
 
-# convert full list to html TODO
+# convert full list to html
 full_html = build.build_html_table(warn_data, 'Texas')
 full_html = build.add_header(full_html, False)
 
