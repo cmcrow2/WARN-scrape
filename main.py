@@ -13,12 +13,10 @@ warn_data['Texas'] = translators.translate_state_data(texas_data)
 large_layoff_data = filters.filter_by_layoff_num(warn_data, 'Texas')
 
 # convert 100 list to html
-filtered_html = build.build_html_table(large_layoff_data, 'Texas')
-filtered_html = build.add_header(filtered_html, True)
+filtered_html = build.build_html(large_layoff_data, 'Texas', True)
 
 # convert full list to html
-full_html = build.build_html_table(warn_data, 'Texas')
-full_html = build.add_header(full_html, False)
+full_html = build.build_html(warn_data, 'Texas', False)
 
 # use email library to send full html to devs
 send_email.send_email(filtered_html)

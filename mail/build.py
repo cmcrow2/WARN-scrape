@@ -27,16 +27,16 @@ def build_html_table(data, state):
 
   return table
 
-def add_header(table, is_filtered):
-  header = '<html><head><style>table {font-family: arial, sans-serif;border-collapse: collapse;width: 100%;}'
-  header += 'td, th {border: 1px solid #dddddd;text-align: left;padding: 8px;}'
-  header += 'p {font-family: arial, sans-serif;font-size: 18px}'
-  header += 'tr:nth-child(even) {background-color: #dddddd;}</style></head><body>'
-  header += '<p>This is an auto-generated notification detailing companies that are planning to lay off'
+def build_html(data, state, is_filtered):
+  html = '<html><head><style>table {font-family: arial, sans-serif;border-collapse: collapse;width: 100%;}'
+  html += 'td, th {border: 1px solid #dddddd;text-align: left;padding: 8px;}'
+  html += 'p {font-family: arial, sans-serif;font-size: 18px}'
+  html += 'tr:nth-child(even) {background-color: #dddddd;}</style></head><body>'
+  html += '<p>This is an auto-generated notification detailing companies that are planning to lay off'
   if (is_filtered):
-     header += ' 100 or more'
-  header += ' employees in 2023.</p>'
-  header += table
-  header += '</body></html>'
+     html += ' 100 or more'
+  html += ' employees in 2023.</p>'
+  html += build_html_table(data, state)
+  html += '</body></html>'
 
-  return header
+  return html
