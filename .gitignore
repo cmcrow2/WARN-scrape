@@ -130,3 +130,5 @@ dmypy.json
 
 # Excel
 temp.xls
+
+.env
