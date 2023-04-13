@@ -1,4 +1,4 @@
-from pandas import *
+from pandas import ExcelFile
 import requests
 
 def get_warn_excel(url):
