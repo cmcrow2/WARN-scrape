@@ -1,9 +1,9 @@
-url = 'https://twc.texas.gov/files/news/warn-act-listings-2023-twc.xlsx'
+from constants import urls
 from mail import send_email, build
 from state_data import excel, translators, filters
 
 # get the texas warn data spreadsheet
-texas_data = excel.get_warn_excel(url)
+texas_data = excel.get_warn_excel(urls.TEXAS_URL)
 
 # translate data to easily iterable format
 warn_data = {}
