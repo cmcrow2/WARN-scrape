@@ -42,9 +42,14 @@ for index in range(0, len(warn_data["Texas"])):
         large_layoff_data["Texas"].append(warn_data["Texas"][index])
 
 # convert 100 list to html
-full_html = ""
-partial_html = "<h2>Here is the list of companies that are going to lay off 100 or more emplyees in Texas:</h2>"
-html = ""
+partial_html = "<h2>Texas WARN Notices:</h2>"
+partial_html += "<table><tr>"
+partial_html += "<th>Company</th>"
+partial_html += "<th>City</th>"
+partial_html += "<th>Date Posted</th>"
+partial_html += "<th>Date Layoffs Begin</th>"
+partial_html += "<th>Number of Layoffs</th>"
+partial_html += "</tr>"
 
 for index in range(len(large_layoff_data["Texas"])):
     temp_company = large_layoff_data["Texas"][index]["company"]
@@ -52,22 +57,35 @@ for index in range(len(large_layoff_data["Texas"])):
     temp_date_posted = large_layoff_data["Texas"][index]["date_posted"]
     temp_layoff_date = large_layoff_data["Texas"][index]["layoff_date"]
     temp_layoff_number = large_layoff_data["Texas"][index]["layoff_number"]
-    partial_html += f"<br></br><h3>{temp_company}, {temp_city}</h3>"
-    partial_html += f"<p>Date WARN Notice was Submitted: {temp_date_posted}<br></br>"
-    partial_html += f"Actual/Expected Date Layoffs Begin: <mark>{temp_layoff_date}</mark><br></br>"
-    partial_html += f"Number of Affected Employees: <strong>{temp_layoff_number}</strong></p>"
+    
+    partial_html += "<tr>"
+    partial_html += f"<td>{temp_company}</td>"
+    partial_html += f"<td>{temp_city}</td>"
+    partial_html += f"<td>{temp_date_posted}</td>"
+    partial_html += f"<td>{temp_layoff_date}</td>"
+    partial_html += f"<td>{temp_layoff_number}</td>"
+    partial_html += "</tr>"
+
+partial_html += "</table>"
 
 # convert full list to html TODO
 
 # combine html
-html = partial_html
+html = "<html><head><style>table {font-family: arial, sans-serif;border-collapse: collapse;width: 100%;}"
+html += "td, th {border: 1px solid #dddddd;text-align: left;padding: 8px;}"
+html += "p {font-family: arial, sans-serif;font-size: 18px}"
+html += "tr:nth-child(even) {background-color: #dddddd;}</style></head><body>"
+html += "<p>This is an auto-generated notification detailing companies that are planning to lay off 100 or more employees in 2023.</p>"
+html += partial_html
+html += "</body></html>"
 
 # use email library to send full html to devs
 email_sender = "19ccrow99@gmail.com"
 email_password = os.getenv("PASS")
-email_receiver = ["19ccrow99@gmail.com", "dpinargo@gmail.com"]
+# email_receiver = ["19ccrow99@gmail.com", "dpinargo@gmail.com"]
+email_receiver = "19ccrow99@gmail.com"
 
-subject = "2023 WARN Data for Texas (100 or more dataset)"
+subject = "2023 WARN Data for Texas"
 
 em = EmailMessage()
 em["From"] = email_sender
