@@ -40,3 +40,15 @@ def build_html(data, state, is_filtered):
   html += '</body></html>'
 
   return html
+
+def build_week_html(data, state):
+  html = '<html><head><style>table {font-family: arial, sans-serif;border-collapse: collapse;width: 100%;}'
+  html += 'td, th {border: 1px solid #dddddd;text-align: left;padding: 8px;}'
+  html += 'p {font-family: arial, sans-serif;font-size: 18px}'
+  html += 'tr:nth-child(even) {background-color: #dddddd;}</style></head><body>'
+  html += '<p>This is an auto-generated notification detailing'
+  html += ' companies that have submitted WARN Notices this week.</p>'
+  html += build_html_table(data, state)
+  html += '</body></html>'
+
+  return html
