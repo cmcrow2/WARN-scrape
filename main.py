@@ -1,9 +1,9 @@
 from constants import urls
 from mail import send_email, build
-from state_data import excel, translators, filters
+from helpers import excel, translators, filters
 
 # get the texas warn data spreadsheet
-texas_data = excel.get_warn_excel(urls.TEXAS_URL)
+texas_data = excel.get_warn_excel(urls.EXCEL['Texas'])
 
 # translate data to easily iterable format
 warn_data = {}
