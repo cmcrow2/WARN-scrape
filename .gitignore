@@ -131,6 +131,7 @@ dmypy.json
 # Excel
 temp.xls
 texas2023.xls
+california2023.xls
 
 # env
 .env

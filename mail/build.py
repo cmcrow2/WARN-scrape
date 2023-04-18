@@ -10,7 +10,7 @@ def build_html_table(data, state):
   table = f'<h2>{state} WARN Notices:</h2>'
   table += '<table><tr>'
   table += '<th>Company</th>'
-  table += '<th>City</th>'
+  table += '<th>City/County</th>'
   table += '<th>Date Posted</th>'
   table += '<th>Date Layoffs Begin</th>'
   table += '<th>Number of Layoffs</th>'
@@ -18,7 +18,7 @@ def build_html_table(data, state):
 
   for index in range(len(data[state])):
       temp_company = data[state][index]['company']
-      temp_city = data[state][index]['city']
+      temp_city = data[state][index]['city/county']
       temp_date_posted = data[state][index]['date_posted']
       temp_layoff_date = data[state][index]['layoff_date']
       temp_layoff_number = data[state][index]['layoff_number']
