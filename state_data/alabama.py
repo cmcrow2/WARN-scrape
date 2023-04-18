@@ -1,27 +1,12 @@
-import requests
-from bs4 import BeautifulSoup
-import pandas as pd
 from constants import urls
 from mail import build
-from helpers import excel, translators, filters
+from helpers import scrape, translators, filters
 
 def alabama_mail():
-    page = requests.get(urls.SCRAPE['Alabama'])
-    soup = BeautifulSoup(page.text, 'lxml')
-    table = soup.find('table')
-    headers = []
-    for i in table.find_all('th'):
-        title = i.text
-        headers.append(title)
+    # get the alabama warn data
+    alabama_data = scrape.get_warn_scrape(urls.SCRAPE['Alabama'])
 
-    alabama_data = pd.DataFrame(columns = headers)
-    for j in table.find_all('tr')[1:]:
-        row_data = j.find_all('td')
-        row = [i.text for i in row_data]
-        length = len(alabama_data)
-        alabama_data.loc[length] = row
-    
-    alabama_data = alabama_data.to_dict()
+    # translate data to easily iterable format
     warn_data = {}
     warn_data['Alabama'] = translators.translate_state_data(alabama_data, 'Company', 'Initial Report Date', 'Planned Starting Date', 'Planned # Affected Employees', 'City')
     
@@ -34,8 +19,5 @@ def alabama_mail():
       # convert past week list to html
       past_week_html = build.build_week_html(past_week_data, 'Alabama')
 
-    # full_html = build.build_html(warn_data, 'Alabama', False)
-
-    # return full_html
     return past_week_html
     

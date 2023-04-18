@@ -4,7 +4,7 @@ from helpers import excel, translators, filters
 
 def texas_mail():
   # get the texas warn data spreadsheet
-  texas_data = excel.get_warn_excel(urls.EXCEL['Texas'])
+  texas_data = excel.get_warn_excel(urls.EXCEL['Texas'], 'texas')
 
   # translate data to easily iterable format
   warn_data = {}
