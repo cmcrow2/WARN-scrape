@@ -1,3 +1,11 @@
+def send_no_data(state):
+   html = '<html><head><style>'
+   html += 'p {font-family: arial, sans-serif;font-size: 18px}'
+   html += '</style></head><body>'
+   html += f'<p>There is no new data available for {state}.</p></body></html>'
+
+   return html
+
 def build_html_table(data, state):
   table = f'<h2>{state} WARN Notices:</h2>'
   table += '<table><tr>'
