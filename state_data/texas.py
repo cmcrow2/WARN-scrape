@@ -8,7 +8,7 @@ def texas_mail():
 
   # translate data to easily iterable format
   warn_data = {}
-  warn_data['Texas'] = translators.translate_state_data(texas_data)
+  warn_data['Texas'] = translators.translate_state_data(texas_data, 'JOB_SITE_NAME', 'NOTICE_DATE', 'LayOff_Date', 'TOTAL_LAYOFF_NUMBER', 'CITY_NAME')
 
   # filter the data by companies that laid off 100 or more employees
   # large_layoff_data = filters.filter_by_layoff_num(warn_data, 'Texas')

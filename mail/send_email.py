@@ -5,13 +5,13 @@ import ssl
 import smtplib
 load_dotenv()
 
-def send_email(body):
+def send_email(body, state):
   email_sender = '19ccrow99@gmail.com'
   email_password = os.getenv('PASS')
   # email_receiver = ['19ccrow99@gmail.com', 'dpinargo@gmail.com']
   email_receiver = '19ccrow99@gmail.com'
 
-  subject = '2023 WARN Data for Texas'
+  subject = f'2023 WARN Data for {state}'
 
   em = EmailMessage()
   em['From'] = email_sender
