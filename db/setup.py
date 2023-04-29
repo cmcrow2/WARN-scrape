@@ -11,20 +11,18 @@ cursor = conn.cursor()
 
 cursor.execute("select version()")
 
-# cursor.execute("DROP TABLE IF EXISTS WARN")
+cursor.execute("DROP TABLE IF EXISTS WARN")
 
-# sql ='''CREATE TABLE WARN(
-#    STATE VARCHAR(255) NOT NULL,
-#    CITY VARCHAR(255),
-#    COUNTY VARCHAR(255),
-#    COMPANY VARCHAR(255),
-#    DATE_FILED DATE,
-#    DATE_EFFECTIVE DATE,
-#    EMPLOYEE_COUNT INT
-# )'''
+sql ='''CREATE TABLE WARN(
+   STATE VARCHAR(500) NOT NULL,
+   LOCATION VARCHAR(500),
+   COMPANY VARCHAR(500),
+   DATE_FILED VARCHAR(500),
+   DATE_EFFECTIVE VARCHAR(500),
+   EMPLOYEE_COUNT INT
+)'''
 
-# cursor.execute(sql)
-# print("Table created successfully........")
-# conn.commit()
+print("Table created successfully........")
+conn.commit()
 
 conn.close()
