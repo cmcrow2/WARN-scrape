@@ -13,7 +13,6 @@ def get_ak_data():
         temp_data["company"] = row["Company"]
         temp_data["date_filed"] = uniform_date_string(row["Notice Date"])
         temp_data["date_effective"] = uniform_date_string(row["Layoff Date"])
-        print(temp_data["date_effective"])
 
         if (row["Employees Affected"] == "TBA"):
             temp_data["employee_count"] = int("-1")
