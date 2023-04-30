@@ -24,13 +24,18 @@ def insert_to_db(data):
         else: 
             date_effective = f"TO_DATE('{row['date_effective']}','YYYY-MM-DD')"
 
+        if (row['employee_count']):
+            employee_count = 'NULL'
+        else:
+            employee_count = f"'{row['employee_count']}'"
+
         values = f"""VALUES (
             '{row['state']}', 
             '{row['location']}', 
             '{row['company'].replace("'", "_")}',  
             {date_filed},
             {date_effective}, 
-            '{row['employee_count']}')"""
+            {employee_count})"""
         
         sql = f"""INSERT INTO state_data {col_names} {values}"""
 
