@@ -14,15 +14,25 @@ def insert_to_db(data):
 
     col_names = '(STATE, LOCATION, COMPANY, DATE_FILED, DATE_EFFECTIVE, EMPLOYEE_COUNT)'
     for row in data:
+        if (row['date_filed'] == "NULL"): 
+            date_filed = "NULL"
+        else: 
+            date_filed = f"TO_DATE('{row['date_filed']}','YYYY-MM-DD')"
+
+        if (row['date_effective'] == "NULL"): 
+            date_effective = "NULL"
+        else: 
+            date_effective = f"TO_DATE('{row['date_effective']}','YYYY-MM-DD')"
+
         values = f"""VALUES (
             '{row['state']}', 
             '{row['location']}', 
-            '{row['company'].replace("'", "_")}', 
-            '{row['date_filed']}', 
-            '{row['date_effective']}', 
+            '{row['company'].replace("'", "_")}',  
+            {date_filed},
+            {date_effective}, 
             '{row['employee_count']}')"""
         
-        sql = f"""INSERT INTO WARN {col_names} {values}"""
+        sql = f"""INSERT INTO state_data {col_names} {values}"""
 
         cursor.execute(sql)
 

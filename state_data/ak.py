@@ -1,4 +1,5 @@
 import csv
+from helpers.date import uniform_date_string
 
 def get_ak_data():
     data = []
@@ -6,11 +7,14 @@ def get_ak_data():
     reader = csv.DictReader(open('exports/ak.csv'))
     for row in reader:
         temp_data = {}
+
         temp_data["state"] = "Alaska"
         temp_data["location"] = row["Location"]
         temp_data["company"] = row["Company"]
-        temp_data["date_filed"] = row["Notice Date"]
-        temp_data["date_effective"] = row["Layoff Date"]
+        temp_data["date_filed"] = uniform_date_string(row["Notice Date"])
+        temp_data["date_effective"] = uniform_date_string(row["Layoff Date"])
+        print(temp_data["date_effective"])
+
         if (row["Employees Affected"] == "TBA"):
             temp_data["employee_count"] = int("-1")
         elif ("up to" in row["Employees Affected"].lower()):
