@@ -24,7 +24,7 @@ def insert_to_db(data):
         else: 
             date_effective = f"TO_DATE('{row['date_effective']}','YYYY-MM-DD')"
 
-        if (row['employee_count']):
+        if (row['employee_count'] == 'NULL'):
             employee_count = 'NULL'
         else:
             employee_count = f"'{row['employee_count']}'"
