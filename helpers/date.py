@@ -1,7 +1,17 @@
 import datetime as DT
 
 def uniform_date_string(date_str):
+    if (date_str == "" or date_str == " "):
+        return "NULL"
+    
     date_str = date_str.replace('*', '')
+    date_str = date_str.replace(',', '')
+    date_str = date_str.replace(u'\xa0', ' ')
+    date_str = date_str.replace(';', '')
+
+    if (date_str[0] == ' '):
+        date_str = date_str[1:]
+
     if ("vari" in date_str.lower() or len(date_str) == 0 or date_str == '' or date_str == "None"):
         return "NULL"
     elif ("jan" in date_str.lower()):
@@ -32,8 +42,15 @@ def uniform_date_string(date_str):
         date_str = DT.datetime.strptime(date_str, '%m/%d/%y')
         date_str = DT.datetime.strftime(date_str, '%Y-%m-%d')
         return date_str
-    elif (len(date_str) == 10):
+    elif ((len(date_str) == 9 or len(date_str) == 8)):
         date_str = DT.datetime.strptime(date_str, '%m/%d/%Y')
+        date_str = DT.datetime.strftime(date_str, '%Y-%m-%d')
+    elif (len(date_str) == 10 and '/' in date_str):
+        date_str = DT.datetime.strptime(date_str, '%m/%d/%Y')
+        date_str = DT.datetime.strftime(date_str, '%Y-%m-%d')
+        return date_str
+    elif (len(date_str) == 10 and '-' in date_str):
+        date_str = DT.datetime.strptime(date_str, '%Y-%m-%d')
         date_str = DT.datetime.strftime(date_str, '%Y-%m-%d')
         return date_str
     elif ("starting" in date_str.lower()):
