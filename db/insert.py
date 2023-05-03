@@ -14,12 +14,12 @@ def insert_to_db(data):
 
     col_names = '(STATE, LOCATION, COMPANY, DATE_FILED, DATE_EFFECTIVE, EMPLOYEE_COUNT)'
     for row in data:
-        if (row['date_filed'] == "NULL"): 
+        if (row['date_filed'] == "NULL" or row['date_filed'] == None): 
             date_filed = "NULL"
         else: 
             date_filed = f"TO_DATE('{row['date_filed']}','YYYY-MM-DD')"
 
-        if (row['date_effective'] == "NULL"): 
+        if (row['date_effective'] == "NULL") or row['date_effective'] == None: 
             date_effective = "NULL"
         else: 
             date_effective = f"TO_DATE('{row['date_effective']}','YYYY-MM-DD')"
