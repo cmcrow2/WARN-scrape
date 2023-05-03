@@ -1,5 +1,6 @@
 import psycopg2
 from dotenv import load_dotenv
+from db.scrape import download_csv
 import os
 load_dotenv()
 
@@ -28,3 +29,5 @@ print("Table created successfully........")
 conn.commit()
 
 conn.close()
+
+download_csv()
