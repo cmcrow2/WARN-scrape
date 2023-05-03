@@ -32,6 +32,10 @@ def uniform_date_string(date_str):
         date_str = DT.datetime.strptime(date_str, '%m/%d/%y')
         date_str = DT.datetime.strftime(date_str, '%Y-%m-%d')
         return date_str
+    elif (len(date_str) == 10):
+        date_str = DT.datetime.strptime(date_str, '%m/%d/%Y')
+        date_str = DT.datetime.strftime(date_str, '%Y-%m-%d')
+        return date_str
     elif ("starting" in date_str.lower()):
         date_str = date_str.split(' ')[-1]
         date_str = DT.datetime.strptime(date_str, '%m/%d/%y')
