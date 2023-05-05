@@ -8,7 +8,7 @@ load_dotenv()
 
 def download_csv():
     path = os.getenv('CSV_PATH')
-    print(path)
+
     os.system(f"warn-scraper --data-dir {path} tx")
     os.system(f"warn-scraper --data-dir {path} ca")
     os.system(f"warn-scraper --data-dir {path} ny")

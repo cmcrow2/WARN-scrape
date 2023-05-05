@@ -1,9 +1,13 @@
 import csv
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 def get_tx_data():
+    path = os.getenv('CSV_PATH')
     data = []
 
-    reader = csv.DictReader(open('exports/tx.csv'))
+    reader = csv.DictReader(open(path + '/tx.csv'))
     for row in reader:
         temp_data = {}
 
