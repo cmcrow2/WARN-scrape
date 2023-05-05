@@ -1,7 +1,10 @@
 import psycopg2
-from dotenv import load_dotenv
-from scrape import download_csv
 import os
+from state_data.scrape_tx import get_texas_data
+from state_data.scrape_ca import get_california_data
+from state_data.scrape_ny import get_newyork_data
+from insert import insert_to_db
+from dotenv import load_dotenv
 load_dotenv()
 
 conn = psycopg2.connect(
@@ -30,4 +33,11 @@ conn.commit()
 
 conn.close()
 
-download_csv()
+tx_data = get_texas_data()
+insert_to_db(tx_data)
+
+ca_data = get_california_data()
+insert_to_db(ca_data)
+
+ny_data = get_newyork_data()
+insert_to_db(ny_data)
