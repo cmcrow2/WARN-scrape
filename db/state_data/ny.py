@@ -1,10 +1,14 @@
 import csv
 from helpers.date import uniform_date_string
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 def get_ny_data():
+    path = os.getenv('CSV_PATH')
     data = []
 
-    reader = csv.DictReader(open('exports/ny.csv'))
+    reader = csv.DictReader(open(path + '/ny.csv'))
     for row in reader:
         temp_data = {}
 
