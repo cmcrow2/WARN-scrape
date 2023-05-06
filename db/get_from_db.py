@@ -21,7 +21,14 @@ def get_from_db():
 
     sql =f'''SELECT * FROM state_data
     WHERE date_filed >= '{week_ago}'
+    ORDER BY date_filed desc
     '''
+    
+    # sql =f'''SELECT * FROM state_data 
+    # WHERE state='California' 
+    # AND employee_count > 49 
+    # order by date_filed desc
+    # '''
 
     cursor.execute(sql)
 

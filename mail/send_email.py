@@ -8,8 +8,8 @@ load_dotenv()
 def send_email(body):
   email_sender = os.getenv('EMAIL_FROM')
   email_password = os.getenv('PASS')
-  email_receiver = ['19ccrow99@gmail.com', 'dpinargo@gmail.com']
-#   email_receiver = '19ccrow99@gmail.com'
+#   email_receiver = ['19ccrow99@gmail.com', 'dpinargo@gmail.com']
+  email_receiver = '19ccrow99@gmail.com'
 
   subject = '2023 WARN Data'
 

@@ -43,5 +43,6 @@ def insert_to_db(data):
 
         conn.commit()
 
-    print("Data saved successfully........")
+    state = data[0]['state']
+    print(f"{state} data saved successfully........")
     conn.close()
