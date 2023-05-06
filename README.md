@@ -16,4 +16,5 @@ Notify code developers for steps on how to create your `.env` file
 ## Dependencies
 - `pip install python-dotenv`
 - `pip install psycopg2`
-- `pip install warn-scraper`
+- `pip install requests`
+- `pip install pandas`
