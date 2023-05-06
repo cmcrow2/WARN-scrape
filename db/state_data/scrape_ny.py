@@ -1,11 +1,9 @@
 import pandas as pd
 import requests
-from bs4 import BeautifulSoup
 import datetime as DT
 
 def get_newyork_data():
     page = requests.get('https://dol.ny.gov/warn-notices')
-    soup = BeautifulSoup(page.text, 'html.parser')
 
     warn_data = pd.read_html(page.text)
     warn_data = warn_data[0].to_dict()

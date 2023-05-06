@@ -3,6 +3,7 @@ import os
 from state_data.scrape_tx import get_texas_data
 from state_data.scrape_ca import get_california_data
 from state_data.scrape_ny import get_newyork_data
+from state_data.scrape_fl import get_florida_data
 from insert import insert_to_db
 from dotenv import load_dotenv
 load_dotenv()
@@ -41,3 +42,6 @@ insert_to_db(ca_data)
 
 ny_data = get_newyork_data()
 insert_to_db(ny_data)
+
+fl_data = get_florida_data()
+insert_to_db(fl_data)
