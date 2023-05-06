@@ -1,12 +1,14 @@
 import psycopg2
 import os
+from insert import insert_to_db
+from dotenv import load_dotenv
+load_dotenv()
+
 from state_data.scrape_tx import get_texas_data
 from state_data.scrape_ca import get_california_data
 from state_data.scrape_ny import get_newyork_data
 from state_data.scrape_fl import get_florida_data
-from insert import insert_to_db
-from dotenv import load_dotenv
-load_dotenv()
+from state_data.scrape_pa import get_pennsylvania_data
 
 conn = psycopg2.connect(
    database=os.getenv('PG_DB'), user=os.getenv('PG_USER'), password=os.getenv('PG_PASS'), host='localhost', port= '5432'
@@ -45,3 +47,6 @@ insert_to_db(ny_data)
 
 fl_data = get_florida_data()
 insert_to_db(fl_data)
+
+pa_data = get_pennsylvania_data()
+insert_to_db(pa_data)
