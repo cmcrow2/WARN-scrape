@@ -4,10 +4,10 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import datetime as DT
 import math
+from constants.urls import fl
 
 def get_florida_data():
-    url = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?query=florida'
-
+    url = fl
     florida_db = []
 
     while True:

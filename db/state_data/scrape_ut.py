@@ -1,9 +1,10 @@
 import pandas as pd
 import requests
 import datetime as DT
+from constants.urls import ut
 
 def get_utah_data():
-    page = requests.get('https://jobs.utah.gov/employer/business/warnnotices.html')
+    page = requests.get(ut)
 
     warn_data = pd.read_html(page.text)
     warn_data = warn_data[0].to_dict()

@@ -23,7 +23,7 @@ cursor.execute("select version()")
 
 cursor.execute("DROP TABLE IF EXISTS state_data")
 
-sql ='''CREATE TABLE state_data(
+sql = '''CREATE TABLE state_data(
    STATE VARCHAR(500) NOT NULL,
    LOCATION VARCHAR(500),
    COMPANY VARCHAR(500),
@@ -39,26 +39,20 @@ conn.commit()
 
 conn.close()
 
-tx_data = get_texas_data()
-insert_to_db(tx_data)
-
-ca_data = get_california_data()
-insert_to_db(ca_data)
-
-ny_data = get_newyork_data()
-insert_to_db(ny_data)
-
-fl_data = get_florida_data()
-insert_to_db(fl_data)
-
-pa_data = get_pennsylvania_data()
-insert_to_db(pa_data)
-
-oh_data = get_ohio_data()
-insert_to_db(oh_data)
-
 az_data = get_arizona_data()
-insert_to_db(az_data)
-
+ca_data = get_california_data()
+fl_data = get_florida_data()
+ny_data = get_newyork_data()
+oh_data = get_ohio_data()
+pa_data = get_pennsylvania_data()
+tx_data = get_texas_data()
 ut_data = get_utah_data()
+
+insert_to_db(az_data)
+insert_to_db(ca_data)
+insert_to_db(fl_data)
+insert_to_db(ny_data)
+insert_to_db(oh_data)
+insert_to_db(pa_data)
+insert_to_db(tx_data)
 insert_to_db(ut_data)

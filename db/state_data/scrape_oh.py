@@ -1,9 +1,10 @@
 import pandas as pd
 import requests
 import datetime as DT
+from constants.urls import oh
 
 def get_ohio_data():
-    page = requests.get('https://jfs.ohio.gov/warn/current.stm')
+    page = requests.get(oh)
 
     warn_data = pd.read_html(page.text, match='Company')
     warn_data = warn_data[0].to_dict()

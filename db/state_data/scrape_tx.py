@@ -1,14 +1,13 @@
 from pandas import ExcelFile
 import requests
 import os
+from constants.urls import tx
 from dotenv import load_dotenv
 load_dotenv()
 
-url = "https://twc.texas.gov/files/news/warn-act-listings-2023-twc.xlsx"
-
 def get_texas_data():
     path = os.getenv('CSV_PATH')
-    res = requests.get(url)
+    res = requests.get(tx)
     open(path + '/texas2023.csv', 'wb').write(res.content)
 
     xls = ExcelFile(path + '/texas2023.csv')

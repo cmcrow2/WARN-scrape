@@ -1,9 +1,10 @@
 import pandas as pd
 import requests
 import datetime as DT
+from constants.urls import ny
 
 def get_newyork_data():
-    page = requests.get('https://dol.ny.gov/warn-notices')
+    page = requests.get(ny)
 
     warn_data = pd.read_html(page.text)
     warn_data = warn_data[0].to_dict()

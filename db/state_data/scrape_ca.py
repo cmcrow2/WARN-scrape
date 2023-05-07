@@ -1,15 +1,14 @@
 from pandas import ExcelFile
 import requests
 import os
-from dotenv import load_dotenv
 import datetime as datetime
+from dotenv import load_dotenv
 load_dotenv()
-
-url = "https://edd.ca.gov/siteassets/files/jobs_and_training/warn/warn_report.xlsx"
+from constants.urls import ca
 
 def get_california_data():
     path = os.getenv('CSV_PATH')
-    res = requests.get(url)
+    res = requests.get(ca)
     open(path + '/california2023.csv', 'wb').write(res.content)
 
     xls = ExcelFile(path + '/california2023.csv')
