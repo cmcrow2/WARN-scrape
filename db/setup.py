@@ -11,6 +11,7 @@ from state_data.scrape_fl import get_florida_data
 from state_data.scrape_pa import get_pennsylvania_data
 from state_data.scrape_oh import get_ohio_data
 from state_data.scrape_az import get_arizona_data
+from state_data.scrape_ut import get_utah_data
 
 conn = psycopg2.connect(
    database=os.getenv('PG_DB'), user=os.getenv('PG_USER'), password=os.getenv('PG_PASS'), host='localhost', port= '5432'
@@ -58,3 +59,6 @@ insert_to_db(oh_data)
 
 az_data = get_arizona_data()
 insert_to_db(az_data)
+
+ut_data = get_utah_data()
+insert_to_db(ut_data)
