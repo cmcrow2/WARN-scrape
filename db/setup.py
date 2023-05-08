@@ -1,10 +1,11 @@
 import psycopg2
 import os
 from insert import insert_to_db
-# from constants.state_list import state_list
+from constants.state_list import state_list
 from dotenv import load_dotenv
 load_dotenv()
 
+from state_data.scrape_al import get_alabama_data
 from state_data.scrape_tx import get_texas_data
 from state_data.scrape_ca import get_california_data
 from state_data.scrape_ny import get_newyork_data
@@ -22,26 +23,27 @@ cursor = conn.cursor()
 
 cursor.execute("select version()")
 
-# for state in state_list:
-#     cursor.execute(f"DROP TABLE IF EXISTS {state}")
+for state in state_list:
+    cursor.execute(f"DROP TABLE IF EXISTS {state}")
 
-#     sql = f'''CREATE TABLE {state}(
-#     ID INT PRIMARY KEY,
-#     STATE VARCHAR(500) NOT NULL,
-#     LOCATION VARCHAR(500),
-#     COMPANY VARCHAR(500),
-#     DATE_FILED DATE,
-#     DATE_EFFECTIVE DATE,
-#     EMPLOYEE_COUNT INT
-#     )'''
+    sql = f'''CREATE TABLE {state}(
+    ID INT PRIMARY KEY,
+    STATE VARCHAR(500) NOT NULL,
+    LOCATION VARCHAR(500),
+    COMPANY VARCHAR(500),
+    DATE_FILED DATE,
+    DATE_EFFECTIVE DATE,
+    EMPLOYEE_COUNT INT
+    )'''
 
-#     cursor.execute(sql)
+    cursor.execute(sql)
 
-#     print(f"{state} created successfully........")
-#     conn.commit()
+    print(f"{state} created successfully........")
+    conn.commit()
 
 conn.close()
 
+al_data = get_alabama_data()
 az_data = get_arizona_data()
 ca_data = get_california_data()
 fl_data = get_florida_data()
@@ -51,6 +53,7 @@ pa_data = get_pennsylvania_data()
 tx_data = get_texas_data()
 ut_data = get_utah_data()
 
+insert_to_db(al_data, 'alabama')
 insert_to_db(az_data, 'arizona')
 insert_to_db(ca_data, 'california')
 insert_to_db(fl_data, 'florida')
