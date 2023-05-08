@@ -15,6 +15,7 @@ from state_data.scrape_pa import get_pennsylvania_data
 from state_data.scrape_oh import get_ohio_data
 from state_data.scrape_az import get_arizona_data
 from state_data.scrape_ut import get_utah_data
+from state_data.scrape_tn import get_tennessee_data
 
 conn = psycopg2.connect(
    database=os.getenv('PG_DB'), user=os.getenv('PG_USER'), password=os.getenv('PG_PASS'), host='localhost', port= '5432'
@@ -52,6 +53,7 @@ ga_data = get_georgia_data()
 ny_data = get_newyork_data()
 oh_data = get_ohio_data()
 pa_data = get_pennsylvania_data()
+tn_data = get_tennessee_data()
 tx_data = get_texas_data()
 ut_data = get_utah_data()
 
@@ -63,5 +65,6 @@ insert_to_db(ga_data, 'georgia')
 insert_to_db(ny_data, 'newyork')
 insert_to_db(oh_data, 'ohio')
 insert_to_db(pa_data, 'pennsylvania')
+insert_to_db(tn_data, 'tennessee')
 insert_to_db(tx_data, 'texas')
 insert_to_db(ut_data, 'utah')

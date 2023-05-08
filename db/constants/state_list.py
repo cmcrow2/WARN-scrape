@@ -7,6 +7,7 @@ state_list = [
     'newyork',
     'ohio',
     'pennsylvania',
+    'tennessee',
     'texas',
     'utah'
 ]

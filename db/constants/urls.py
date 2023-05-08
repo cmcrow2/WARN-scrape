@@ -6,5 +6,6 @@ ga = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-c
 ny = 'https://dol.ny.gov/warn-notices'
 oh = 'https://jfs.ohio.gov/warn/current.stm'
 pa = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?page=26&query=pennsylvania'
+tn = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?page=2&query=tennessee'
 tx = 'https://twc.texas.gov/files/news/warn-act-listings-2023-twc.xlsx'
 ut = 'https://jobs.utah.gov/employer/business/warnnotices.html'
