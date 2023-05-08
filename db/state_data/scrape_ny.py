@@ -28,7 +28,10 @@ def get_newyork_data():
             temp_data["date_filed"] = DT.datetime.strptime(warn_data["Date Posted"][idx], '%m/%d/%Y')
             temp_data["date_filed"] = DT.datetime.strftime(temp_data["date_filed"], '%Y-%m-%d')
 
-        temp_data["date_effective"] = "NULL"
+        date = DT.datetime.strptime(temp_data["date_filed"], '%Y-%m-%d')
+        temp_data["date_effective"] = date + DT.timedelta(days = 60)
+        temp_data["date_effective"] = DT.datetime.strftime(temp_data["date_effective"], '%Y-%m-%d')
+        
         temp_data["employee_count"] = "NULL"
 
         newyork_db.append(temp_data)

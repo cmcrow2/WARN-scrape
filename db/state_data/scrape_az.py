@@ -29,7 +29,10 @@ def get_arizona_data():
             temp_data["date_filed"] = DT.datetime.strptime(warn_data["Notice Date\xa0▲"][idx], '%b %d, %Y')
             temp_data["date_filed"] = DT.datetime.strftime(temp_data["date_filed"], '%Y-%m-%d')
 
-            temp_data["date_effective"] = "NULL"
+            date = DT.datetime.strptime(temp_data["date_filed"], '%Y-%m-%d')
+            temp_data["date_effective"] = date + DT.timedelta(days = 60)
+            temp_data["date_effective"] = DT.datetime.strftime(temp_data["date_effective"], '%Y-%m-%d')
+            
             temp_data["employee_count"] = "NULL"
 
             arizona_db.append(temp_data)
