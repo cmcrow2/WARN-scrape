@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import os
 load_dotenv()
 
-def insert_to_db(data):
+def insert_to_db(data, state):
     conn = psycopg2.connect(
     database=os.getenv('PG_DB'), user=os.getenv('PG_USER'), password=os.getenv('PG_PASS'), host='localhost', port= '5432'
     )
@@ -37,7 +37,7 @@ def insert_to_db(data):
             {date_effective}, 
             {employee_count})"""
         
-        sql = f"""INSERT INTO state_data {col_names} {values}"""
+        sql = f"""INSERT INTO {state} {col_names} {values}"""
 
         cursor.execute(sql)
 
