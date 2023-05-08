@@ -1,4 +1,5 @@
 state_list = [
+    'alabama',
     'arizona',
     'california',
     'florida',
