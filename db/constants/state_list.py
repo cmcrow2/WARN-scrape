@@ -3,6 +3,7 @@ state_list = [
     'arizona',
     'california',
     'florida',
+    'georgia',
     'newyork',
     'ohio',
     'pennsylvania',
