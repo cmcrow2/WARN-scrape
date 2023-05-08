@@ -39,7 +39,8 @@ def get_pennsylvania_data():
                 temp_data["date_filed"] = DT.datetime.strftime(temp_data["date_filed"], '%Y-%m-%d')
 
                 if (not isinstance((warn_data["Starting Date"][idx]), str) and math.isnan(warn_data["Starting Date"][idx])):
-                    temp_data["date_effective"] = "NULL"
+                    date = DT.datetime.strptime(temp_data["date_filed"], '%Y-%m-%d')
+                    temp_data["date_effective"] = date + DT.timedelta(days = 60)
                 elif ('.' in warn_data["Starting Date"][idx]):
                     temp = warn_data["Starting Date"][idx]
                     if ('Sept' in warn_data["Starting Date"][idx]):
