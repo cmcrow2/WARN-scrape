@@ -5,7 +5,7 @@ from db.constants.queries import all_data_week
 load_dotenv()
 
 
-def get_from_db():
+def get_from_db(state):
     conn = psycopg2.connect(
     database=os.getenv('PG_DB'), user=os.getenv('PG_USER'), password=os.getenv('PG_PASS'), host='localhost', port= '5432'
     )
@@ -14,7 +14,7 @@ def get_from_db():
 
     cursor.execute("select version()")
 
-    cursor.execute(all_data_week)
+    cursor.execute(all_data_week(state))
 
     result = cursor.fetchall()
 

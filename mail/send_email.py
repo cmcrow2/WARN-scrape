@@ -5,13 +5,13 @@ import smtplib
 from dotenv import load_dotenv
 load_dotenv()
 
-def send_email(body):
+def send_email(body, state):
   email_sender = os.getenv('EMAIL_FROM')
   email_password = os.getenv('PASS')
 #   email_receiver = ['19ccrow99@gmail.com', 'dpinargo@gmail.com']
   email_receiver = '19ccrow99@gmail.com'
 
-  subject = '2023 WARN Data'
+  subject = f'2023 WARN Data for {state.capitalize()}'
 
   em = EmailMessage()
   em['From'] = email_sender
