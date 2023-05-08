@@ -1,17 +1,22 @@
 import pandas as pd
 import requests
 import datetime as DT
+from constants.urls import oh
 
 def get_ohio_data():
-    page = requests.get('https://jfs.ohio.gov/warn/current.stm')
+    page = requests.get(oh)
 
     warn_data = pd.read_html(page.text, match='Company')
     warn_data = warn_data[0].to_dict()
 
     ohio_db = []
 
-    for idx in range(0, len(warn_data["Date Received"])):
+    count = 1
+    for idx in reversed(warn_data["Date Received"]):
         temp_data = {}
+
+        temp_data['id'] = count
+        count += 1
 
         temp_data["state"] = "Ohio"
 

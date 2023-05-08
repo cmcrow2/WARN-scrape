@@ -1,14 +1,13 @@
 from pandas import ExcelFile
 import requests
 import os
+from constants.urls import tx
 from dotenv import load_dotenv
 load_dotenv()
 
-url = "https://twc.texas.gov/files/news/warn-act-listings-2023-twc.xlsx"
-
 def get_texas_data():
     path = os.getenv('CSV_PATH')
-    res = requests.get(url)
+    res = requests.get(tx)
     open(path + '/texas2023.csv', 'wb').write(res.content)
 
     xls = ExcelFile(path + '/texas2023.csv')
@@ -16,8 +15,11 @@ def get_texas_data():
 
     texas_db = []
 
-    for idx in range(0, len(warn_data["NOTICE_DATE"])):
+    count = 1
+    for idx in range(len(warn_data["CITY_NAME"]) - 1, -1, -1):
         temp_data = {}
+        temp_data['id'] = count
+        count += 1
         temp_data["state"] = "Texas"
         temp_data["location"] = warn_data["CITY_NAME"][idx]
         if ("   " in warn_data["JOB_SITE_NAME"][idx]):

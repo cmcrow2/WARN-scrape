@@ -1,17 +1,21 @@
 import pandas as pd
 import requests
 import datetime as DT
+from constants.urls import ny
 
 def get_newyork_data():
-    page = requests.get('https://dol.ny.gov/warn-notices')
+    page = requests.get(ny)
 
     warn_data = pd.read_html(page.text)
     warn_data = warn_data[0].to_dict()
 
     newyork_db = []
 
-    for idx in range(0, len(warn_data["Date Posted"])):
+    count = 1
+    for idx in reversed(warn_data["Date Posted"]):
         temp_data = {}
+        temp_data['id'] = count
+        count += 1
         temp_data["state"] = "New York"
         temp_data["location"] = "NULL"
         temp_data["company"] = warn_data["Company Name"][idx]
