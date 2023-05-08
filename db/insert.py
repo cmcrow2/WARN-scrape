@@ -12,7 +12,7 @@ def insert_to_db(data, state):
 
     cursor.execute("select version()")
 
-    col_names = '(STATE, LOCATION, COMPANY, DATE_FILED, DATE_EFFECTIVE, EMPLOYEE_COUNT)'
+    col_names = '(ID, STATE, LOCATION, COMPANY, DATE_FILED, DATE_EFFECTIVE, EMPLOYEE_COUNT)'
     for row in data:
         if (row['date_filed'] == "NULL" or row['date_filed'] == None): 
             date_filed = "NULL"
@@ -30,6 +30,7 @@ def insert_to_db(data, state):
             employee_count = f"'{row['employee_count']}'"
 
         values = f"""VALUES (
+            '{row['id']}',
             '{row['state']}', 
             '{row['location']}', 
             '{row['company'].replace("'", "_")}',  
@@ -37,7 +38,7 @@ def insert_to_db(data, state):
             {date_effective}, 
             {employee_count})"""
         
-        sql = f"""INSERT INTO {state} {col_names} {values}"""
+        sql = f"""INSERT INTO {state} {col_names} {values} ON CONFLICT (ID) DO NOTHING"""
 
         cursor.execute(sql)
 

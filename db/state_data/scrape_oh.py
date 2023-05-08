@@ -11,8 +11,12 @@ def get_ohio_data():
 
     ohio_db = []
 
-    for idx in range(0, len(warn_data["Date Received"])):
+    count = 1
+    for idx in reversed(warn_data["Date Received"]):
         temp_data = {}
+
+        temp_data['id'] = count
+        count += 1
 
         temp_data["state"] = "Ohio"
 

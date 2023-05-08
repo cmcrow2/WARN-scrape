@@ -11,8 +11,11 @@ def get_utah_data():
 
     utah_db = []
 
-    for idx in range(0, len(warn_data["Date of Notice"])):
+    count = 1
+    for idx in range(len(warn_data["Date of Notice"]) - 1, -1, -1):
         temp_data = {}
+        temp_data['id'] = count
+        count += 1
         temp_data["state"] = "Utah"
         temp_data["location"] = warn_data["Location"][idx]
         temp_data["company"] = warn_data["Company Name"][idx]

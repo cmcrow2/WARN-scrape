@@ -10,6 +10,8 @@ def get_florida_data():
     url = fl
     florida_db = []
 
+    count = 1
+
     while True:
         page = requests.get(url)
         soup = BeautifulSoup(page.text, "lxml")
@@ -17,9 +19,11 @@ def get_florida_data():
         warn_data = pd.read_html(page.text)
         warn_data = warn_data[0].to_dict()
         
-        for idx in range(0, len(warn_data["Reporting State"])):
+        for idx in reversed(warn_data["Reporting State"]):
             if (warn_data["Reporting State"][idx] == "Florida"):
                 temp_data = {}
+                temp_data['id'] = count
+                count += 1
                 temp_data["state"] = "Florida"
                 temp_data["location"] = "NULL"
                 temp_data["company"] = warn_data["Name"][idx]
@@ -50,7 +54,7 @@ def get_florida_data():
 
                 florida_db.append(temp_data)
 
-        next_page_element = soup.find("a", {"aria-label": "Next"})
+        next_page_element = soup.find("a", {"aria-label": "Previous"})
         if next_page_element:
             next_page_url = next_page_element.get('href')
             url = urljoin(url, next_page_url)

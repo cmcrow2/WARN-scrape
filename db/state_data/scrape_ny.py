@@ -11,8 +11,11 @@ def get_newyork_data():
 
     newyork_db = []
 
-    for idx in range(0, len(warn_data["Date Posted"])):
+    count = 1
+    for idx in reversed(warn_data["Date Posted"]):
         temp_data = {}
+        temp_data['id'] = count
+        count += 1
         temp_data["state"] = "New York"
         temp_data["location"] = "NULL"
         temp_data["company"] = warn_data["Company Name"][idx]

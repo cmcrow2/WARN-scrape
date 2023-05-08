@@ -19,6 +19,7 @@ def get_california_data():
 
     for idx in range(0, len(warn_data["Received\nDate"])):
         temp_data = {}
+        temp_data['id'] = idx + 1
         temp_data["state"] = "California"
         temp_data["location"] = warn_data["County/Parish"][idx]
         temp_data["company"] = warn_data["Company"][idx]
