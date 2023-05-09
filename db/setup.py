@@ -40,11 +40,12 @@ for state in state_list:
 
     cursor.execute(sql)
 
-    print(f"{state} created successfully........")
+    print(f'Table "{state}" created successfully........')
     conn.commit()
 
 conn.close()
 
+print('\nScraping all state data........')
 al_data = get_alabama_data()
 az_data = get_arizona_data()
 ca_data = get_california_data()
@@ -57,6 +58,7 @@ tn_data = get_tennessee_data()
 tx_data = get_texas_data()
 ut_data = get_utah_data()
 
+print('\nInserting all state data........')
 insert_to_db(al_data, 'alabama')
 insert_to_db(az_data, 'arizona')
 insert_to_db(ca_data, 'california')

@@ -67,5 +67,6 @@ def get_georgia_data():
             url = urljoin(url, next_page_url)
         else:
             break
-
+    
+    print('Georgia scrape successfull........')
     return georgia_db

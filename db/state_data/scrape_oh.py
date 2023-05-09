@@ -38,4 +38,5 @@ def get_ohio_data():
 
         ohio_db.append(temp_data)
 
+    print('Ohio scrape successfull........')
     return ohio_db

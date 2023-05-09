@@ -36,4 +36,5 @@ def get_newyork_data():
 
         newyork_db.append(temp_data)
 
+    print('New York scrape successfull........')
     return newyork_db

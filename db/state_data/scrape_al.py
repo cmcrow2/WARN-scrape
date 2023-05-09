@@ -30,4 +30,5 @@ def get_alabama_data():
 
         alabama_db.append(temp_data)
 
+    print('Alabama scrape successfull........')
     return alabama_db

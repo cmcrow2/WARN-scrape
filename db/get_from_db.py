@@ -6,6 +6,7 @@ load_dotenv()
 
 
 def get_from_db(state):
+    print(f"Fetching Data for {state.capitalize()}........")
     conn = psycopg2.connect(
     database=os.getenv('PG_DB'), user=os.getenv('PG_USER'), password=os.getenv('PG_PASS'), host='localhost', port= '5432'
     )

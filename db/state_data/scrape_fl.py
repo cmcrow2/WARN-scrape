@@ -61,4 +61,5 @@ def get_florida_data():
         else:
             break
 
+    print('Florida scrape successfull........')
     return florida_db
