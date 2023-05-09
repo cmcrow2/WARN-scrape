@@ -32,4 +32,5 @@ def get_texas_data():
 
         texas_db.append(temp_data)
 
+    print('Texas scrape successfull........')
     return texas_db

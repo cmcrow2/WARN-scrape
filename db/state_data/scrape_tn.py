@@ -67,5 +67,6 @@ def get_tennessee_data():
             url = urljoin(url, next_page_url)
         else:
             break
-
+    
+    print('Tennessee scrape successfull........')
     return tennessee_db

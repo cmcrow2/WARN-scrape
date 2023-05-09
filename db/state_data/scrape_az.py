@@ -44,4 +44,5 @@ def get_arizona_data():
         else:
             break
 
+    print('Arizona scrape successfull........')
     return arizona_db

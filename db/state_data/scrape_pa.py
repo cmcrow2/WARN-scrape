@@ -67,4 +67,5 @@ def get_pennsylvania_data():
         else:
             break
 
+    print('Pennsylvania scrape successfull........')
     return pennsylvania_db

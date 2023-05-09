@@ -30,4 +30,5 @@ def get_utah_data():
 
         utah_db.append(temp_data)
 
+    print('Utah scrape successfull........')
     return utah_db

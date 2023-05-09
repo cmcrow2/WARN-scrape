@@ -29,4 +29,5 @@ def get_california_data():
 
         california_db.append(temp_data)
 
+    print('California scrape successfull........')
     return california_db
