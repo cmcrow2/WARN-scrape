@@ -12,6 +12,7 @@ from state_data.scrape_ca import get_california_data
 from state_data.scrape_co import get_colorado_data
 from state_data.scrape_fl import get_florida_data
 from state_data.scrape_ga import get_georgia_data
+from state_data.scrape_il import get_illinois_data
 from state_data.scrape_ma import get_massachusetts_data
 from state_data.scrape_ny import get_newyork_data
 from state_data.scrape_oh import get_ohio_data
@@ -56,6 +57,7 @@ ca_data = get_california_data()
 co_data = get_colorado_data()
 fl_data = get_florida_data()
 ga_data = get_georgia_data()
+il_data = get_illinois_data()
 ma_data = get_massachusetts_data()
 ny_data = get_newyork_data()
 oh_data = get_ohio_data()
@@ -72,6 +74,7 @@ insert_to_db(ca_data, 'california')
 insert_to_db(co_data, 'colorado')
 insert_to_db(fl_data, 'florida')
 insert_to_db(ga_data, 'georgia')
+insert_to_db(il_data, 'illinois')
 insert_to_db(ma_data, 'massachusetts')
 insert_to_db(ny_data, 'newyork')
 insert_to_db(oh_data, 'ohio')
