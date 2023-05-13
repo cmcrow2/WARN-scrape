@@ -5,6 +5,7 @@ ca = 'https://edd.ca.gov/siteassets/files/jobs_and_training/warn/warn_report.xls
 co = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?page=10&query=colorado'
 fl = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?page=10&query=florida'
 ga = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?page=10&query=georgia'
+il = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?page=10&query=illinois'
 ma = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?page=5&query=massachusetts'
 ny = 'https://dol.ny.gov/warn-notices'
 oh = 'https://jfs.ohio.gov/warn/current.stm'
