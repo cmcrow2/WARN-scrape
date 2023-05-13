@@ -2,6 +2,7 @@ import psycopg2
 import os
 from insert import insert_to_db
 from constants.state_list import state_list
+from constants.queries import create_table, drop_table
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -30,18 +31,9 @@ cursor = conn.cursor()
 cursor.execute("select version()")
 
 for state in state_list:
-    cursor.execute(f"DROP TABLE IF EXISTS {state}")
+    cursor.execute(drop_table(state))
 
-    sql = f'''CREATE TABLE {state}(
-    ID INT PRIMARY KEY,
-    STATE VARCHAR(500) NOT NULL,
-    LOCATION VARCHAR(500),
-    COMPANY VARCHAR(500),
-    DATE_FILED DATE,
-    DATE_EFFECTIVE DATE,
-    EMPLOYEE_COUNT INT
-    )'''
-
+    sql = create_table(state)
     cursor.execute(sql)
 
     print(f'Table "{state}" created successfully........')
