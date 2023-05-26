@@ -7,12 +7,12 @@ week_ago = DT.datetime.strftime(week_ago, '%Y-%m-%d')
 
 def all_data_week(state):
     return f'''SELECT * FROM {state}
-    WHERE date_filed >= '{week_ago}'
+    WHERE STATUS = 'new'
     ORDER BY date_filed desc
     '''
 
 def insert_builder(row, state):
-    col_names = '(ID, STATE, LOCATION, COMPANY, DATE_FILED, DATE_EFFECTIVE, EMPLOYEE_COUNT)'
+    col_names = '(STATUS, ID, STATE, LOCATION, COMPANY, DATE_FILED, DATE_EFFECTIVE, EMPLOYEE_COUNT)'
 
     if (row['date_filed'] == "NULL" or row['date_filed'] == None): 
         date_filed = "NULL"
@@ -30,6 +30,7 @@ def insert_builder(row, state):
         employee_count = f"'{row['employee_count']}'"
 
     values = f"""VALUES (
+        'new',
         '{row['id']}',
         '{row['state']}', 
         '{row['location']}', 
@@ -43,6 +44,7 @@ def insert_builder(row, state):
 
 def create_table(state):
     return f'''CREATE TABLE {state}(
+    STATUS VARCHAR(500) NOT NULL,
     ID INT PRIMARY KEY,
     STATE VARCHAR(500) NOT NULL,
     LOCATION VARCHAR(500),
@@ -54,3 +56,8 @@ def create_table(state):
 
 def drop_table(state):
     return f"DROP TABLE IF EXISTS {state}"
+
+def update_values(state):
+    return f'''UPDATE {state}
+    SET STATUS = REPLACE(STATUS, 'new', 'seen')
+    WHERE STATUS = 'new';'''
