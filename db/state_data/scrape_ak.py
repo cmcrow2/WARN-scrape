@@ -5,9 +5,10 @@ import pandas as pd
 import datetime as DT
 import math
 from constants.urls import ak
+from helpers.find_last_page import find_last_page
 
 def get_alaska_data():
-    url = ak
+    url = find_last_page(ak)
     alaska_db = []
 
     count = 1

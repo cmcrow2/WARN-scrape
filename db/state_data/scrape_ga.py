@@ -5,9 +5,10 @@ import pandas as pd
 import datetime as DT
 import math
 from constants.urls import ga
+from helpers.find_last_page import find_last_page
 
 def get_georgia_data():
-    url = ga
+    url = find_last_page(ga)
     georgia_db = []
 
     count = 1

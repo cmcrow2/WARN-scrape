@@ -9,6 +9,7 @@ def send_no_data():
 def build_html_table(data):
   table = f'<h2>WARN Notices:</h2>'
   table += '<table><tr>'
+  table += '<th>Status</th>'
   table += '<th>ID</th>'
   table += '<th>State</th>'
   table += '<th>City/County</th>'

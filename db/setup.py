@@ -1,8 +1,8 @@
-import psycopg2
-import os
+# import psycopg2
+# import os
 from insert import insert_to_db
-from constants.state_list import state_list
-from constants.queries import create_table, drop_table
+# from constants.state_list import state_list
+# from constants.queries import create_table, drop_table
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -22,24 +22,24 @@ from state_data.scrape_tn import get_tennessee_data
 from state_data.scrape_tx import get_texas_data
 from state_data.scrape_ut import get_utah_data
 
-conn = psycopg2.connect(
-   database=os.getenv('PG_DB'), user=os.getenv('PG_USER'), password=os.getenv('PG_PASS'), host='localhost', port= '5432'
-)
+# conn = psycopg2.connect(
+#    database=os.getenv('PG_DB'), user=os.getenv('PG_USER'), password=os.getenv('PG_PASS'), host='localhost', port= '5432'
+# )
 
-cursor = conn.cursor()
+# cursor = conn.cursor()
 
-cursor.execute("select version()")
+# cursor.execute("select version()")
 
-for state in state_list:
-    cursor.execute(drop_table(state))
+# for state in state_list:
+#     # cursor.execute(drop_table(state))
 
-    sql = create_table(state)
-    cursor.execute(sql)
+#     sql = create_table(state)
+#     cursor.execute(sql)
 
-    print(f'Table "{state}" created successfully........')
-    conn.commit()
+#     print(f'Table "{state}" created successfully........')
+#     conn.commit()
 
-conn.close()
+# conn.close()
 
 print('\nScraping all state data........')
 ak_data = get_alaska_data()

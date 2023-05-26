@@ -5,9 +5,10 @@ import pandas as pd
 import datetime as DT
 import math
 from constants.urls import il
+from helpers.find_last_page import find_last_page
 
 def get_illinois_data():
-    url = il
+    url = find_last_page(il)
     illinois_db = []
 
     count = 1
@@ -26,8 +27,9 @@ def get_illinois_data():
                 temp_data["state"] = "Illinois"
                 temp_data["location"] = "NULL"
                 temp_data["company"] = warn_data["Name"][idx]
-
-                if ('.' in warn_data["Notice Date"][idx]):
+                if (not isinstance((warn_data["Notice Date"][idx]), str) and math.isnan(warn_data["Notice Date"][idx])):
+                    temp_data["date_filed"] = 'NULL'
+                elif ('.' in warn_data["Notice Date"][idx]):
                     temp = warn_data["Notice Date"][idx]
                     if ('Sept' in warn_data["Notice Date"][idx]):
                         temp = temp.replace('t', '')
@@ -36,10 +38,15 @@ def get_illinois_data():
                 else:
                     temp_data["date_filed"] = DT.datetime.strptime(warn_data["Notice Date"][idx], '%B %d, %Y')
 
-                temp_data["date_filed"] = DT.datetime.strftime(temp_data["date_filed"], '%Y-%m-%d')
+                if (temp_data["date_filed"] != 'NULL'):
+                    temp_data["date_filed"] = DT.datetime.strftime(temp_data["date_filed"], '%Y-%m-%d')
 
-                if (not isinstance((warn_data["Starting Date"][idx]), str) and math.isnan(warn_data["Starting Date"][idx])):
+                if (temp_data["date_filed"] == 'NULL'):
+                    temp_data["date_effective"] = 'NULL'
+                elif (not isinstance((warn_data["Starting Date"][idx]), str) and math.isnan(warn_data["Starting Date"][idx])):
                     date = DT.datetime.strptime(temp_data["date_filed"], '%Y-%m-%d')
+                    if (temp_data["date_filed"] == 'NULL'):
+                        temp_data["date_effective"] = 'NULL'
                     temp_data["date_effective"] = date + DT.timedelta(days = 60)
                 elif ('.' in warn_data["Starting Date"][idx]):
                     temp = warn_data["Starting Date"][idx]

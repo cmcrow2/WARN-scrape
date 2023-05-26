@@ -5,9 +5,10 @@ import pandas as pd
 import datetime as DT
 import math
 from constants.urls import ma
+from helpers.find_last_page import find_last_page
 
 def get_massachusetts_data():
-    url = ma
+    url = find_last_page(ma)
     massachusetts_db = []
 
     count = 1

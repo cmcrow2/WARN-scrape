@@ -5,9 +5,10 @@ import pandas as pd
 import datetime as DT
 import math
 from constants.urls import fl
+from helpers.find_last_page import find_last_page
 
 def get_florida_data():
-    url = fl
+    url = find_last_page(fl)
     florida_db = []
 
     count = 1
