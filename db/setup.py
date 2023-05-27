@@ -15,6 +15,7 @@ from state_data.scrape_ct import get_connecticut_data
 from state_data.scrape_de import get_delaware_data
 from state_data.scrape_fl import get_florida_data
 from state_data.scrape_ga import get_georgia_data
+from state_data.scrape_id import get_idaho_data
 from state_data.scrape_il import get_illinois_data
 from state_data.scrape_ma import get_massachusetts_data
 from state_data.scrape_ny import get_newyork_data
@@ -53,6 +54,7 @@ ct_data = get_connecticut_data()
 de_data = get_delaware_data()
 fl_data = get_florida_data()
 ga_data = get_georgia_data()
+id_data = get_idaho_data()
 il_data = get_illinois_data()
 ma_data = get_massachusetts_data()
 ny_data = get_newyork_data()
@@ -72,6 +74,7 @@ insert_to_db(ct_data, 'connecticut')
 insert_to_db(de_data, 'delaware')
 insert_to_db(fl_data, 'florida')
 insert_to_db(ga_data, 'georgia')
+insert_to_db(id_data, 'idaho')
 insert_to_db(il_data, 'illinois')
 insert_to_db(ma_data, 'massachusetts')
 insert_to_db(ny_data, 'newyork')
