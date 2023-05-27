@@ -8,6 +8,7 @@ state_list = [
     'delaware',
     'florida',
     'georgia',
+    'idaho',
     'illinois',
     'massachusetts',
     'newyork',
