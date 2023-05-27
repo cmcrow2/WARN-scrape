@@ -4,6 +4,7 @@ az = 'https://www.azjobconnection.gov/search/warn_lookups?commit=Search&page=1&q
 ca = 'https://edd.ca.gov/siteassets/files/jobs_and_training/warn/warn_report.xlsx'
 co = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?page=1&query=colorado'
 ct = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?page=1&query=connecticut'
+de = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?query=Delaware'
 fl = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?page=1&query=florida'
 ga = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?page=1&query=georgia'
 il = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?page=1&query=illinois'
