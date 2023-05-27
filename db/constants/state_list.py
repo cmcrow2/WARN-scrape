@@ -10,6 +10,7 @@ state_list = [
     'georgia',
     'idaho',
     'illinois',
+    'indiana',
     'massachusetts',
     'newyork',
     'ohio',
