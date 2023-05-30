@@ -19,6 +19,7 @@ from state_data.scrape_ia import get_iowa_data
 from state_data.scrape_id import get_idaho_data
 from state_data.scrape_il import get_illinois_data
 from state_data.scrape_in import get_indiana_data
+from state_data.scrape_ks import get_kansas_data
 from state_data.scrape_ma import get_massachusetts_data
 from state_data.scrape_ny import get_newyork_data
 from state_data.scrape_oh import get_ohio_data
@@ -67,6 +68,7 @@ pa_data = get_pennsylvania_data()
 tn_data = get_tennessee_data()
 tx_data = get_texas_data()
 ut_data = get_utah_data()
+ks_data = get_kansas_data()
 
 print('\nInserting all state data........')
 insert_to_db(ak_data, 'alaska')
@@ -82,6 +84,7 @@ insert_to_db(ia_data, 'iowa')
 insert_to_db(id_data, 'idaho')
 insert_to_db(il_data, 'illinois')
 insert_to_db(in_data, 'indiana')
+insert_to_db(ks_data, 'kansas')
 insert_to_db(ma_data, 'massachusetts')
 insert_to_db(ny_data, 'newyork')
 insert_to_db(oh_data, 'ohio')
