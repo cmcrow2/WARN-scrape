@@ -7,6 +7,12 @@ week_ago = DT.datetime.strftime(week_ago, '%Y-%m-%d')
 
 def all_data_week(state):
     return f'''SELECT * FROM {state}
+    WHERE date_filed >= '{week_ago}'
+    ORDER BY date_filed desc
+    '''
+
+def all_data_new(state):
+    return f'''SELECT * FROM {state}
     WHERE STATUS = 'new'
     ORDER BY date_filed desc
     '''
