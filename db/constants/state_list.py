@@ -12,6 +12,7 @@ state_list = [
     'idaho',
     'illinois',
     'indiana',
+    'kansas',
     'massachusetts',
     'newyork',
     'ohio',
