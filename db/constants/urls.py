@@ -12,6 +12,7 @@ id = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-c
 il = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?page=1&query=illinois'
 in_ = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?query=indiana'
 ks = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?query=kansas'
+ky = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?query=kentucky'
 ma = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?page=1&query=massachusetts'
 ny = 'https://dol.ny.gov/warn-notices'
 oh = 'https://jfs.ohio.gov/warn/current.stm'
