@@ -4,12 +4,12 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import datetime as DT
 import math
-from constants.urls import ia
+from constants.urls import la
 from helpers.find_last_page import find_last_page
 
-def get_iowa_data():
-    url = find_last_page(ia)
-    iowa_db = []
+def get_louisiana_data():
+    url = find_last_page(la)
+    louisiana_db = []
 
     count = 1
     while True:
@@ -20,11 +20,11 @@ def get_iowa_data():
         warn_data = warn_data[0].to_dict()
         
         for idx in reversed(warn_data["Reporting State"]):
-            if (warn_data["Reporting State"][idx] == "Iowa"):
+            if (warn_data["Reporting State"][idx] == "Louisiana"):
                 temp_data = {}
                 temp_data['id'] = count
                 count += 1
-                temp_data["state"] = "Iowa"
+                temp_data["state"] = "Louisiana"
                 temp_data["location"] = "NULL"
                 temp_data["company"] = warn_data["Name"][idx]
                 if (not isinstance((warn_data["Notice Date"][idx]), str) and math.isnan(warn_data["Notice Date"][idx])):
@@ -65,7 +65,7 @@ def get_iowa_data():
                 else:
                     temp_data["employee_count"] = math.floor(warn_data["Number of employees affected"][idx])
 
-                iowa_db.append(temp_data)
+                louisiana_db.append(temp_data)
 
         next_page_element = soup.find("a", {"aria-label": "Previous"})
         if next_page_element:
@@ -74,5 +74,5 @@ def get_iowa_data():
         else:
             break
 
-    print('Iowa scrape successfull........')
-    return iowa_db
+    print('Louisiana scrape successfull........')
+    return louisiana_db
