@@ -6,6 +6,7 @@ from insert import insert_to_db
 from dotenv import load_dotenv
 load_dotenv()
 
+# INSERT HERE: from state_data.scrape_{abbr} import get_{state}_data
 from state_data.scrape_ak import get_alaska_data
 from state_data.scrape_al import get_alabama_data
 from state_data.scrape_az import get_arizona_data
@@ -52,6 +53,7 @@ for state in state_list:
 
 conn.close()
 
+# INSERT HERE: {abbr}_data = get_{state}_data()
 print('\nScraping all state data........')
 ak_data = get_alaska_data()
 al_data = get_alabama_data()
@@ -80,6 +82,7 @@ tn_data = get_tennessee_data()
 tx_data = get_texas_data()
 ut_data = get_utah_data()
 
+# INSERT HERE: insert_to_db({abbr}_data, {state})
 print('\nInserting all state data........')
 insert_to_db(ak_data, 'alaska')
 insert_to_db(al_data, 'alabama')

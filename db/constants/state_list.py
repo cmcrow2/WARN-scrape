@@ -1,3 +1,4 @@
+# INSERT HERE: state
 state_list = [
     'alaska',
     'alabama',
