@@ -20,6 +20,8 @@ state_list = [
     'maryland',
     'maine',
     'michigan',
+    'missouri',
+    'montana',
     'newyork',
     'ohio',
     'pennsylvania',

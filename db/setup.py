@@ -27,12 +27,14 @@ from state_data.scrape_ma import get_massachusetts_data
 from state_data.scrape_md import get_maryland_data
 from state_data.scrape_me import get_maine_data
 from state_data.scrape_mi import get_michigan_data
+from state_data.scrape_mo import get_missouri_data
 from state_data.scrape_ny import get_newyork_data
 from state_data.scrape_oh import get_ohio_data
 from state_data.scrape_pa import get_pennsylvania_data
 from state_data.scrape_tn import get_tennessee_data
 from state_data.scrape_tx import get_texas_data
 from state_data.scrape_ut import get_utah_data
+from state_data.scrape_mt import get_montana_data
 
 conn = psycopg2.connect(
    database=os.getenv('PG_DB'), user=os.getenv('PG_USER'), password=os.getenv('PG_PASS'), host='localhost', port= '5432'
@@ -81,8 +83,10 @@ pa_data = get_pennsylvania_data()
 tn_data = get_tennessee_data()
 tx_data = get_texas_data()
 ut_data = get_utah_data()
+mo_data = get_missouri_data()
+mt_data = get_montana_data()
 
-# INSERT HERE: insert_to_db({abbr}_data, {state})
+# INSERT HERE: insert_to_db({abbr}_data, '{state}')
 print('\nInserting all state data........')
 insert_to_db(ak_data, 'alaska')
 insert_to_db(al_data, 'alabama')
@@ -110,3 +114,5 @@ insert_to_db(pa_data, 'pennsylvania')
 insert_to_db(tn_data, 'tennessee')
 insert_to_db(tx_data, 'texas')
 insert_to_db(ut_data, 'utah')
+insert_to_db(mo_data, 'missouri')
+insert_to_db(mt_data, 'montana')
