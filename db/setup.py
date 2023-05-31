@@ -21,6 +21,7 @@ from state_data.scrape_il import get_illinois_data
 from state_data.scrape_in import get_indiana_data
 from state_data.scrape_ks import get_kansas_data
 from state_data.scrape_ky import get_kentucky_data
+from state_data.scrape_la import get_louisiana_data
 from state_data.scrape_ma import get_massachusetts_data
 from state_data.scrape_ny import get_newyork_data
 from state_data.scrape_oh import get_ohio_data
@@ -64,6 +65,7 @@ il_data = get_illinois_data()
 in_data = get_indiana_data()
 ks_data = get_kansas_data()
 ky_data = get_kentucky_data()
+la_data = get_louisiana_data()
 ma_data = get_massachusetts_data()
 ny_data = get_newyork_data()
 oh_data = get_ohio_data()
@@ -88,6 +90,7 @@ insert_to_db(il_data, 'illinois')
 insert_to_db(in_data, 'indiana')
 insert_to_db(ks_data, 'kansas')
 insert_to_db(ky_data, 'kentucky')
+insert_to_db(la_data, 'louisiana')
 insert_to_db(ma_data, 'massachusetts')
 insert_to_db(ny_data, 'newyork')
 insert_to_db(oh_data, 'ohio')
