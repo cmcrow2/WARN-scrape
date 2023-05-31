@@ -18,6 +18,7 @@ state_list = [
     'massachusetts',
     'maryland',
     'maine',
+    'michigan',
     'newyork',
     'ohio',
     'pennsylvania',

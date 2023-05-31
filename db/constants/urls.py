@@ -17,6 +17,7 @@ la = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-c
 ma = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?page=1&query=massachusetts'
 md = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?query=maryland'
 me = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?query=maine'
+mi = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?query=michigan'
 ny = 'https://dol.ny.gov/warn-notices'
 oh = 'https://jfs.ohio.gov/warn/current.stm'
 pa = 'https://data.floridatoday.com/see-which-companies-announced-mass-layoffs-closings/?page=1&query=pennsylvania'
