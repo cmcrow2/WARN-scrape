@@ -35,6 +35,8 @@ from state_data.scrape_tn import get_tennessee_data
 from state_data.scrape_tx import get_texas_data
 from state_data.scrape_ut import get_utah_data
 from state_data.scrape_mt import get_montana_data
+from state_data.scrape_ne import get_nebraska_data
+from state_data.scrape_nv import get_nevada_data
 
 conn = psycopg2.connect(
    database=os.getenv('PG_DB'), user=os.getenv('PG_USER'), password=os.getenv('PG_PASS'), host='localhost', port= '5432'
@@ -85,6 +87,8 @@ tx_data = get_texas_data()
 ut_data = get_utah_data()
 mo_data = get_missouri_data()
 mt_data = get_montana_data()
+ne_data = get_nebraska_data()
+nv_data = get_nevada_data()
 
 # INSERT HERE: insert_to_db({abbr}_data, '{state}')
 print('\nInserting all state data........')
@@ -116,3 +120,5 @@ insert_to_db(tx_data, 'texas')
 insert_to_db(ut_data, 'utah')
 insert_to_db(mo_data, 'missouri')
 insert_to_db(mt_data, 'montana')
+insert_to_db(ne_data, 'nebraska')
+insert_to_db(nv_data, 'nevada')

@@ -22,6 +22,8 @@ state_list = [
     'michigan',
     'missouri',
     'montana',
+    'nebraska',
+    'nevada',
     'newyork',
     'ohio',
     'pennsylvania',
