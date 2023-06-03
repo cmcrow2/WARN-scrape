@@ -23,11 +23,22 @@ state_list = [
     'missouri',
     'montana',
     'nebraska',
+    'newjersey',
+    'newmexico',
     'nevada',
     'newyork',
     'ohio',
     'pennsylvania',
     'tennessee',
     'texas',
-    'utah'
+    'utah',
+    'oregon',
+    'oklahoma',
+    'rhodeisland',
+    'southcarolina',
+    'southdakota',
+    'vermont',
+    'virginia',
+    'washington',
+    'wisconsin'
 ]
