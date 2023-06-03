@@ -37,6 +37,17 @@ from state_data.scrape_ut import get_utah_data
 from state_data.scrape_mt import get_montana_data
 from state_data.scrape_ne import get_nebraska_data
 from state_data.scrape_nv import get_nevada_data
+from state_data.scrape_nj import get_newjersey_data
+from state_data.scrape_nm import get_newmexico_data
+from state_data.scrape_or import get_oregon_data
+from state_data.scrape_ok import get_oklahoma_data
+from state_data.scrape_ri import get_rhodeisland_data
+from state_data.scrape_sc import get_southcarolina_data
+from state_data.scrape_sd import get_southdakota_data
+from state_data.scrape_vt import get_vermont_data
+from state_data.scrape_va import get_virginia_data
+from state_data.scrape_wa import get_washington_data
+from state_data.scrape_wi import get_wisconsin_data
 
 conn = psycopg2.connect(
    database=os.getenv('PG_DB'), user=os.getenv('PG_USER'), password=os.getenv('PG_PASS'), host='localhost', port= '5432'
@@ -89,6 +100,17 @@ mo_data = get_missouri_data()
 mt_data = get_montana_data()
 ne_data = get_nebraska_data()
 nv_data = get_nevada_data()
+nj_data = get_newjersey_data()
+nm_data = get_newmexico_data()
+or_data = get_oregon_data()
+ok_data = get_oklahoma_data()
+ri_data = get_rhodeisland_data()
+sc_data = get_southcarolina_data()
+sd_data = get_southdakota_data()
+vt_data = get_vermont_data()
+va_data = get_virginia_data()
+wa_data = get_washington_data()
+wi_data = get_wisconsin_data()
 
 # INSERT HERE: insert_to_db({abbr}_data, '{state}')
 print('\nInserting all state data........')
@@ -122,3 +144,14 @@ insert_to_db(mo_data, 'missouri')
 insert_to_db(mt_data, 'montana')
 insert_to_db(ne_data, 'nebraska')
 insert_to_db(nv_data, 'nevada')
+insert_to_db(nj_data, 'newjersey')
+insert_to_db(nm_data, 'newmexico')
+insert_to_db(or_data, 'oregon')
+insert_to_db(ok_data, 'oklahoma')
+insert_to_db(ri_data, 'rhodeisland')
+insert_to_db(sc_data, 'southcarolina')
+insert_to_db(sd_data, 'southdakota')
+insert_to_db(vt_data, 'vermont')
+insert_to_db(va_data, 'virginia')
+insert_to_db(wa_data, 'washington')
+insert_to_db(wi_data, 'wisconsin')
