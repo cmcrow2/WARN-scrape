@@ -11,7 +11,12 @@ def send_email(body, state):
 #   email_receiver = ['19ccrow99@gmail.com', 'dpinargo@gmail.com']
   email_receiver = '19ccrow99@gmail.com'
 
-  subject = f'2023 WARN Data for {state.capitalize()}'
+  if ('_' in state):
+     first_word = state.split('_')[0].capitalize()
+     second_word = state.split('_')[1].capitalize()
+     subject = f'2023 WARN Data for {first_word} {second_word}'
+  else:
+    subject = f'2023 WARN Data for {state.capitalize()}'
 
   em = EmailMessage()
   em['From'] = email_sender

@@ -23,10 +23,10 @@ state_list = [
     'missouri',
     'montana',
     'nebraska',
-    'newjersey',
-    'newmexico',
+    'new_jersey',
+    'new_mexico',
     'nevada',
-    'newyork',
+    'new_york',
     'ohio',
     'pennsylvania',
     'tennessee',
@@ -34,11 +34,73 @@ state_list = [
     'utah',
     'oregon',
     'oklahoma',
-    'rhodeisland',
-    'southcarolina',
-    'southdakota',
+    'rhode_island',
+    'south_carolina',
+    'south_dakota',
     'vermont',
     'virginia',
+    'washington',
+    'wisconsin'
+]
+
+mon_list = [
+    'alabama',
+    'alaska',
+    'arizona',
+    'california',
+    'colorado',
+    'connecticut'
+]
+
+tue_list = [
+    'delaware',
+    'florida',
+    'georgia',
+    'idaho',
+    'illinois',
+    'indiana'
+]
+
+wed_list = [
+    'iowa',
+    'kansas',
+    'kentucky',
+    'louisiana',
+    'maine',
+    'maryland'
+]
+
+thu_list = [
+    'massachusetts',
+    'michigan',
+    'montana',
+    'missouri',
+    'nebraska',
+    'nevada'
+]
+
+fri_list = [
+    'new_jersey',
+    'new_mexico',
+    'new_york',
+    'ohio',
+    'oklahoma',
+    'oregon'
+]
+
+sat_list = [
+    'pennsylvania',
+    'rhode_island',
+    'south_carolina',
+    'south_dakota',
+    'tennessee',
+    'texas'
+]
+
+sun_list = [
+    'utah',
+    'vermont',
+    'virginia'
     'washington',
     'wisconsin'
 ]
