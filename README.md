@@ -1,5 +1,6 @@
 # WARN-scrape
-Scrapes a webpage for the warn list for Texas, California, and New York. 
+Companies that are expecting to undergo mass layoffs must file a WARN notice in their respective states two months before layoffs begin. This application scrapes most states' warn lists and is set up to send out emails on a cron schedule detailing the companies who filed WARN notices by state.
+
 This program is written in Python3.
 
 ## Running the Program
